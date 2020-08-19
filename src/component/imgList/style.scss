@@ -1,0 +1,13 @@
+.imgCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  .ant-card-body {
+    box-sizing: border-box;
+    padding: 10px;
+    .ant-card-meta-title {
+        margin: 0;
+    }
+  }
+}

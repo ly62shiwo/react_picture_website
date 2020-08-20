@@ -1,0 +1,15 @@
+.tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  overflow-x: scroll; /*添加横向滚动条*/
+  overflow-y: hidden;
+  padding: 10px;
+}
+
+.ant-divider-horizontal {
+  margin-top: 0px;
+
+}

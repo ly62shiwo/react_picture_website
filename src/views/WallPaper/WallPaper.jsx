@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef, useCallback } from "react";
+import InfiniteScroll from 'react-infinite-scroller'
 import { getCategories, getPictureList } from "@/api/getData";
 import ImgView from "@/component/imgList/imgView";
 import TypeNav from "@/component/TypeNav/TypeNav";
@@ -51,11 +52,26 @@ function WallPaper(props) {
     setIsLoading(true);
     setQueryInfo({ ...query, type: item.key });
   };
+  const loadMoreImgs = () => {
+    setIsLoading(true)
+    // setImgList([]);
+    console.log(111111);
+    setQueryInfo({...query, start: query.start + query.count})
+  }
 
   return (
     <div>
       <TypeNav list={typeList} onMenuClick={changeImgType} />
-      <ImgView list={imgList} spinning={spin} />
+      
+      <InfiniteScroll
+        initialLoad
+        pageStart={0}
+        loadMore={loadMoreImgs}
+        hasMore={ hasMore && !isLoading }
+        threshold={100}
+      >
+        <ImgView list={imgList} spinning={spin} />
+      </InfiniteScroll>
     </div>
   );
 }

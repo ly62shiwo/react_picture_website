@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { EyeFilled, HeartFilled } from "@ant-design/icons";
-import { Card, Spin, Drawer } from "antd";
+import { Card, Spin, Drawer, BackTop } from "antd";
 import "./style.scss";
 
 const { Meta } = Card;
@@ -15,6 +15,17 @@ function ImgView(props) {
 
   const onClose = () => {
     setVisible(false);
+  };
+
+  const style = {
+    height: 40,
+    width: 40,
+    lineHeight: "40px",
+    borderRadius: 4,
+    backgroundColor: "rgba(0,0,0,.45)",
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 14,
   };
 
   return (
@@ -64,6 +75,9 @@ function ImgView(props) {
             );
           })
         : null}
+      <BackTop>
+        <div style={style}> ^ </div>
+      </BackTop>
       <Drawer
         title=''
         placement='top'
